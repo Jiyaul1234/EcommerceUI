@@ -1,0 +1,378 @@
+// Variables
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$success-color: #28a745;
+$danger-color: #dc3545;
+$warning-color: #ffc107;
+$info-color: #17a2b8;
+
+// Bootstrap customization
+$body-bg: #f8f9fa;
+$body-color: #333;
+$link-color: $primary-color;
+
+// Import Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+// Global Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: $body-bg;
+  color: $body-color;
+  line-height: 1.6;
+}
+
+// Material Icons
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.5rem;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+// Common Utility Classes
+.container-custom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+// Buttons
+.btn {
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  padding: 0.625rem 1.25rem;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, $primary-color 0%, #0056b3 100%);
+  border: none;
+
+  &:hover {
+    background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
+  }
+
+  &:disabled {
+    background: $secondary-color;
+  }
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, $secondary-color 0%, #5a6268 100%);
+  border: none;
+
+  &:hover {
+    background: linear-gradient(135deg, #5a6268 0%, #4e555b 100%);
+  }
+}
+
+// Cards
+.card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Form Controls
+.form-control, .form-select {
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:focus {
+    border-color: $primary-color;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+
+  &::placeholder {
+    color: #999;
+  }
+}
+
+.form-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+// Tables
+.table {
+  border-collapse: collapse;
+
+  thead {
+    background-color: #f5f5f5;
+    border-bottom: 2px solid #ddd;
+
+    th {
+      font-weight: 600;
+      color: #333;
+      padding: 1rem;
+      text-align: left;
+    }
+  }
+
+  tbody tr {
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #f9f9f9;
+    }
+
+    td {
+      padding: 1rem;
+      vertical-align: middle;
+    }
+  }
+}
+
+// Badges
+.badge {
+  border-radius: 20px;
+  padding: 0.4rem 0.8rem;
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+// Alerts
+.alert {
+  border-radius: 6px;
+  border: none;
+  border-left: 4px solid;
+
+  &.alert-success {
+    border-left-color: $success-color;
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #1e5631;
+  }
+
+  &.alert-danger {
+    border-left-color: $danger-color;
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #721c24;
+  }
+
+  &.alert-warning {
+    border-left-color: $warning-color;
+    background-color: rgba(255, 193, 7, 0.1);
+    color: #856404;
+  }
+
+  &.alert-info {
+    border-left-color: $info-color;
+    background-color: rgba(23, 162, 184, 0.1);
+    color: #0c5460;
+  }
+}
+
+// Pagination
+.pagination {
+  .page-link {
+    color: $primary-color;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $primary-color;
+      color: white;
+      border-color: $primary-color;
+    }
+
+    &.active {
+      background-color: $primary-color;
+      border-color: $primary-color;
+    }
+  }
+}
+
+// Navbar customization
+.navbar {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: -0.5px;
+
+    &:hover {
+      color: #80b9ff !important;
+      transition: color 0.3s ease;
+    }
+  }
+
+  .nav-link {
+    font-weight: 500;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      color: #80b9ff !important;
+    }
+
+    &.active {
+      color: #fff !important;
+      border-bottom: 2px solid $primary-color;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .container-custom {
+    padding: 0 10px;
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .card {
+    margin-bottom: 1rem;
+  }
+
+  .table {
+    font-size: 0.9rem;
+
+    thead th, tbody td {
+      padding: 0.75rem;
+    }
+  }
+}
+
+// Accessibility
+a:focus, button:focus, input:focus {
+  outline: 2px solid $primary-color;
+  outline-offset: 2px;
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.3s ease-in;
+}
+
+// Utility classes
+.text-primary-color {
+  color: $primary-color;
+}
+
+.bg-primary-light {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.shadow-sm {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+// Flex utilities
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.min-vh-100 {
+  min-height: 100vh;
+}
+
+// Scroll behavior
+html {
+  scroll-behavior: smooth;
+}
+
+// Selection color
+::selection {
+  background-color: $primary-color;
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+
+  &:hover {
+    background: #555;
+  }
+}

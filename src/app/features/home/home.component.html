@@ -1,0 +1,85 @@
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Welcome to EcommercePro</h1>
+        <p class="hero-subtitle">Discover amazing products at unbeatable prices</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Section -->
+  <section class="category-section py-5">
+    <div class="container">
+      <h2 class="section-title">Shop by Category</h2>
+      <div class="row g-3">
+        <div class="col-md-3 col-sm-6" *ngFor="let category of categories">
+          <div class="category-card">
+            <span class="material-icons category-icon">category</span>
+            <h5>{{ category }}</h5>
+            <a href="#" class="btn btn-sm btn-outline-primary">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Products Section -->
+  <section class="products-section py-5">
+    <div class="container">
+      <h2 class="section-title">Latest Products</h2>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let product of latestProducts">
+          <app-product-card
+            [product]="product"
+            (addToCart)="onAddToCart($event)"
+            (viewDetails)="onViewDetails($event)">
+          </app-product-card>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <a routerLink="/products" class="btn btn-primary btn-lg">
+          View All Products
+          <span class="material-icons ms-2">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section py-5 bg-light">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-3">
+          <div class="feature-box text-center">
+            <span class="material-icons feature-icon">local_shipping</span>
+            <h5>Free Shipping</h5>
+            <p>Free shipping on orders over $50</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="feature-box text-center">
+            <span class="material-icons feature-icon">security</span>
+            <h5>Secure Payment</h5>
+            <p>100% secure and encrypted transactions</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="feature-box text-center">
+            <span class="material-icons feature-icon">assignment_return</span>
+            <h5>Easy Returns</h5>
+            <p>30-day return policy on all items</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="feature-box text-center">
+            <span class="material-icons feature-icon">support_agent</span>
+            <h5>24/7 Support</h5>
+            <p>Dedicated customer support team</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

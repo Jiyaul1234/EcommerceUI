@@ -1,0 +1,121 @@
+<div class="product-detail-container" *ngIf="product">
+  <div class="container py-5">
+    <div class="row mb-5">
+      <div class="col-lg-6">
+        <!-- Image Gallery -->
+        <div class="product-gallery">
+          <div class="main-image">
+            <img [src]="selectedImage" [alt]="product.name">
+           
+         
+          </div>
+     
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <!-- Product Info -->
+        <div class="product-info">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item"><a href="/products">Products</a></li>
+              <li class="breadcrumb-item active">{{ product.name }}</li>
+            </ol>
+          </nav>
+
+          <h1 class="product-title">{{ product.name }}</h1>
+
+          <!-- Rating -->
+          <div class="product-rating mb-3">
+            <div class="stars">
+              <span class="material-icons">star</span>
+              <span class="ms-2">{{ product.rating }} ({{ product.reviews }} reviews)</span>
+            </div>
+          </div>
+
+          <!-- Price -->
+          <div class="product-price mb-3">
+            <span class="current-price" *ngIf="product.discountedPrice; else regularPrice">
+              {{ product.discountedPrice | currency }}
+            </span>
+            <ng-template #regularPrice>
+              <span class="current-price">{{ product.price | currency }}</span>
+            </ng-template>
+            <span class="original-price ms-2" *ngIf="product.discountedPrice">
+              {{ product.price | currency }}
+            </span>
+          </div>
+
+          <!-- Stock Status -->
+          <div class="stock-status mb-3">
+            <span *ngIf="product.inStock" class="badge bg-success">
+              <span class="material-icons">check</span> In Stock
+            </span>
+            <span *ngIf="!product.inStock" class="badge bg-danger">
+              <span class="material-icons">close</span> Out of Stock
+            </span>
+          </div>
+
+          <!-- Description -->
+          <div class="description mb-4">
+            <h5>Description</h5>
+            <p>{{ product.description }}</p>
+          </div>
+
+          <!-- Quantity Selector -->
+          <div class="quantity-selector mb-4" *ngIf="product.inStock">
+            <label class="form-label">Quantity:</label>
+            <div class="input-group w-auto">
+              <button class="btn btn-outline-secondary" (click)="decreaseQuantity()">
+                <span class="material-icons">remove</span>
+              </button>
+              <input type="number" class="form-control text-center" [(ngModel)]="quantity" readonly style="width: 60px;">
+              <button class="btn btn-outline-secondary" (click)="increaseQuantity()">
+                <span class="material-icons">add</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="action-buttons">
+            <button class="btn btn-primary btn-lg w-100 mb-2" (click)="addToCart()" *ngIf="product.inStock">
+              <span class="material-icons">add_shopping_cart</span>
+              Add to Cart
+            </button>
+            <button class="btn btn-success btn-lg w-100" (click)="buyNow()" *ngIf="product.inStock">
+              <span class="material-icons">shopping_checkout</span>
+              Buy Now
+            </button>
+            <button class="btn btn-secondary btn-lg w-100" disabled *ngIf="!product.inStock">
+              Out of Stock
+            </button>
+          </div>
+
+          <!-- Additional Info -->
+          <div class="additional-info mt-4 pt-4 border-top">
+            <p><strong>Category:</strong> {{ product.category }}</p>
+            <p><strong>SKU:</strong> {{ product.id }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Products -->
+    <div class="row mt-5 pt-5 border-top" *ngIf="relatedProducts.length > 0">
+      <div class="col-12">
+        <h3>Related Products</h3>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4" *ngFor="let relatedProduct of relatedProducts">
+        <app-product-card
+          [product]="relatedProduct"
+          (addToCart)="onRelatedProductAddToCart($event)">
+        </app-product-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!product" class="container py-5">
+  <div class="alert alert-info">Loading product details...</div>
+</div>

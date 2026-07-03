@@ -1,0 +1,43 @@
+<div class="order-confirmation-container">
+  <div class="container py-5">
+    <div class="confirmation-content">
+      <div class="success-icon">
+        <span class="material-icons">check_circle</span>
+      </div>
+
+      <h1 class="success-title">Order Confirmed!</h1>
+      <p class="success-message">Thank you for your purchase</p>
+
+      <div class="order-details">
+        <div class="detail-box">
+          <h5>Order Number</h5>
+          <p class="order-number">{{ orderNumber }}</p>
+        </div>
+
+        <div class="detail-box">
+          <h5>Payment Status</h5>
+          <p><span class="badge bg-success">Completed</span></p>
+        </div>
+
+        <div class="detail-box">
+          <h5>Estimated Delivery</h5>
+          <p>{{ estimatedDelivery | date: 'MMM dd, yyyy' }}</p>
+        </div>
+      </div>
+
+      <div class="confirmation-message">
+        <p>We've sent a confirmation email to your registered email address.</p>
+        <p>You can track your order from the "My Orders" page.</p>
+      </div>
+
+      <div class="action-buttons">
+        <button class="btn btn-primary btn-lg" (click)="viewOrders()">
+          <span class="material-icons">receipt</span> View My Orders
+        </button>
+        <button class="btn btn-outline-primary btn-lg" (click)="continueShopping()">
+          <span class="material-icons">shopping_bag</span> Continue Shopping
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

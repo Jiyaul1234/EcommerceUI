@@ -1,0 +1,87 @@
+<div class="shipping-container">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <h1 class="mb-4">Shipping Address</h1>
+
+        <form [formGroup]="shippingForm" (ngSubmit)="onSubmit()" class="shipping-form">
+          <div class="form-section">
+            <h5>Personal Information</h5>
+            
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="fullName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="fullName" formControlName="fullName"
+                  [class.is-invalid]="f['fullName'].invalid && (f['fullName'].dirty || f['fullName'].touched)">
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="mobileNumber" class="form-label">Mobile Number</label>
+                <input type="tel" class="form-control" id="mobileNumber" formControlName="mobileNumber"
+                  [class.is-invalid]="f['mobileNumber'].invalid && (f['mobileNumber'].dirty || f['mobileNumber'].touched)">
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="email" formControlName="email"
+                [class.is-invalid]="f['email'].invalid && (f['email'].dirty || f['email'].touched)">
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h5>Shipping Address</h5>
+
+            <div class="mb-3">
+              <label for="addressLine1" class="form-label">Address Line 1</label>
+              <input type="text" class="form-control" id="addressLine1" formControlName="addressLine1"
+                [class.is-invalid]="f['addressLine1'].invalid && (f['addressLine1'].dirty || f['addressLine1'].touched)">
+            </div>
+
+            <div class="mb-3">
+              <label for="addressLine2" class="form-label">Address Line 2 (Optional)</label>
+              <input type="text" class="form-control" id="addressLine2" formControlName="addressLine2">
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="city" class="form-label">City</label>
+                <input type="text" class="form-control" id="city" formControlName="city"
+                  [class.is-invalid]="f['city'].invalid && (f['city'].dirty || f['city'].touched)">
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="state" class="form-label">State</label>
+                <input type="text" class="form-control" id="state" formControlName="state"
+                  [class.is-invalid]="f['state'].invalid && (f['state'].dirty || f['state'].touched)">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="country" class="form-label">Country</label>
+                <input type="text" class="form-control" id="country" formControlName="country"
+                  [class.is-invalid]="f['country'].invalid && (f['country'].dirty || f['country'].touched)">
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="pincode" class="form-label">Pincode</label>
+                <input type="text" class="form-control" id="pincode" formControlName="pincode"
+                  [class.is-invalid]="f['pincode'].invalid && (f['pincode'].dirty || f['pincode'].touched)">
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex gap-2 mt-4">
+            <button type="submit" class="btn btn-primary btn-lg" [disabled]="isLoading">
+              {{ isLoading ? 'Saving...' : 'Continue' }}
+            </button>
+            <button type="button" class="btn btn-outline-secondary btn-lg" (click)="skip()">
+              Skip
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

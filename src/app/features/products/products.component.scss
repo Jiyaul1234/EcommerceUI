@@ -1,0 +1,121 @@
+.products-container {
+  background-color: #f8f9fa;
+  min-height: calc(100vh - 200px);
+
+  .filter-sidebar {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 80px;
+
+    .filter-title {
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #333;
+      border-bottom: 2px solid #007bff;
+      padding-bottom: 10px;
+    }
+
+    .filter-group {
+      margin-bottom: 20px;
+
+      .form-label {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 8px;
+      }
+
+      .form-select, .form-control {
+        border-radius: 6px;
+        border: 1px solid #ddd;
+
+        &:focus {
+          border-color: #007bff;
+          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+      }
+
+      .form-range {
+        cursor: pointer;
+        height: 6px;
+
+        &::-webkit-slider-thumb {
+          width: 18px;
+          height: 18px;
+          background: #007bff;
+          cursor: pointer;
+        }
+
+        &::-moz-range-thumb {
+          width: 18px;
+          height: 18px;
+          background: #007bff;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .products-header {
+    h2 {
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .text-muted {
+      font-size: 0.95rem;
+    }
+  }
+
+  .pagination {
+    margin-top: 40px;
+
+    .page-item {
+      margin: 0 2px;
+
+      .page-link {
+        border-radius: 6px;
+        border: 1px solid #ddd;
+        color: #007bff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover:not(.disabled) {
+          background-color: #007bff;
+          color: white;
+          border-color: #007bff;
+        }
+
+        &.active {
+          background-color: #007bff;
+          color: white;
+          border-color: #007bff;
+        }
+      }
+
+      &.disabled .page-link {
+        color: #999;
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .filter-sidebar {
+    position: static;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .products-container {
+    .filter-sidebar {
+      padding: 15px;
+    }
+  }
+}
