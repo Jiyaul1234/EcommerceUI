@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Order, OrderItem } from '@shared/models';
 import { environment } from '@environments/environment';
+import {  HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +13,16 @@ export class OrderService {
 
   constructor(private http: HttpClient) {}
 
-  createOrder(orderData: any): Observable<Order> {
-    return this.http.post<Order>(this.apiUrl, orderData);
-  }
+ createOrder(orderData: any): Observable<Order> {
+  const token = localStorage.getItem('token');
+
+  const headers = new HttpHeaders({
+    Authorization: `Bearer ${token}`
+  });
+
+  return this.http.post<Order>(this.apiUrl, orderData, { headers });
+}
+
 
   getOrder(orderId: string): Observable<Order> {
     return this.http.get<Order>(`${this.apiUrl}/${orderId}`);
