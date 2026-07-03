@@ -1,16 +1,13 @@
 export interface ShippingAddress {
-  id?: string;
   fullName: string;
-  mobileNumber: string;
-  email: string;
   addressLine1: string;
   addressLine2?: string;
   city: string;
   state: string;
+  postalCode: string;
   country: string;
-  pincode: string;
+  phoneNumber: string;
 }
-
 export interface Customer {
   id: string;
   email: string;

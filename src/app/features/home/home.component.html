@@ -1,85 +1,204 @@
 <div class="home-container">
+
   <!-- Hero Section -->
-  <section class="hero-section">
+  <section class="hero-section py-5">
     <div class="container">
-      <div class="hero-content">
-        <h1 class="hero-title">Welcome to EcommercePro</h1>
-        <p class="hero-subtitle">Discover amazing products at unbeatable prices</p>
-      </div>
-    </div>
-  </section>
+      <div class="row align-items-center">
 
-  <!-- Category Section -->
-  <section class="category-section py-5">
-    <div class="container">
-      <h2 class="section-title">Shop by Category</h2>
-      <div class="row g-3">
-        <div class="col-md-3 col-sm-6" *ngFor="let category of categories">
-          <div class="category-card">
-            <span class="material-icons category-icon">category</span>
-            <h5>{{ category }}</h5>
-            <a href="#" class="btn btn-sm btn-outline-primary">Shop Now</a>
-          </div>
+        <div class="col-lg-6">
+          <h1 class="display-4 fw-bold mb-3">
+            Welcome to <span class="text-primary">EcommercePro</span>
+          </h1>
+
+          <p class="lead text-muted mb-4">
+            Discover premium products at the best prices with fast delivery and secure payments.
+          </p>
+
+          <a routerLink="/products" class="btn btn-primary btn-lg me-3">
+            Shop Now
+          </a>
+
+          <a routerLink="/products" class="btn btn-outline-dark btn-lg">
+            Browse Products
+          </a>
         </div>
+
+        <div class="col-lg-6 text-center mt-4 mt-lg-0">
+          <img
+            src="assets/images/hero-shopping.png"
+            class="img-fluid"
+            alt="Shopping">
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Latest Products Section -->
-  <section class="products-section py-5">
+  <!-- Categories -->
+  <section class="py-5 bg-light">
     <div class="container">
-      <h2 class="section-title">Latest Products</h2>
+
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Shop by Category</h2>
+        <p class="text-muted">
+          Find products from your favourite categories
+        </p>
+      </div>
+
       <div class="row g-4">
-        <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let product of latestProducts">
+
+        <div
+          class="col-lg-3 col-md-4 col-sm-6"
+          *ngFor="let category of categories">
+
+          <div class="card border-0 shadow-sm h-100 text-center p-4">
+
+            <span class="material-icons display-4 text-primary mb-3">
+              category
+            </span>
+
+            <h5>{{ category }}</h5>
+
+            <button
+              class="btn btn-outline-primary mt-3">
+              Shop Now
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Latest Products -->
+  <section class="py-5">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+          <h2 class="fw-bold mb-1">
+            Latest Products
+          </h2>
+
+          <p class="text-muted mb-0">
+            New arrivals selected for you
+          </p>
+        </div>
+
+        <a
+          routerLink="/products"
+          class="btn btn-outline-primary">
+          View All
+        </a>
+
+      </div>
+
+      <div class="row g-4">
+
+        <div
+          class="col-xl-3 col-lg-4 col-md-6"
+          *ngFor="let product of latestProducts">
+
           <app-product-card
             [product]="product"
             (addToCart)="onAddToCart($event)"
             (viewDetails)="onViewDetails($event)">
           </app-product-card>
+
         </div>
+
       </div>
-      <div class="text-center mt-5">
-        <a routerLink="/products" class="btn btn-primary btn-lg">
-          View All Products
-          <span class="material-icons ms-2">arrow_forward</span>
-        </a>
-      </div>
+
     </div>
   </section>
 
-  <!-- Features Section -->
-  <section class="features-section py-5 bg-light">
+  <!-- Features -->
+  <section class="py-5 bg-light">
+
     <div class="container">
+
       <div class="row g-4">
-        <div class="col-md-3">
-          <div class="feature-box text-center">
-            <span class="material-icons feature-icon">local_shipping</span>
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="card border-0 shadow-sm h-100 text-center p-4">
+
+            <span class="material-icons display-5 text-primary mb-3">
+              local_shipping
+            </span>
+
             <h5>Free Shipping</h5>
-            <p>Free shipping on orders over $50</p>
+
+            <p class="text-muted mb-0">
+              Free delivery on orders over ₹999
+            </p>
+
           </div>
+
         </div>
-        <div class="col-md-3">
-          <div class="feature-box text-center">
-            <span class="material-icons feature-icon">security</span>
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="card border-0 shadow-sm h-100 text-center p-4">
+
+            <span class="material-icons display-5 text-primary mb-3">
+              security
+            </span>
+
             <h5>Secure Payment</h5>
-            <p>100% secure and encrypted transactions</p>
+
+            <p class="text-muted mb-0">
+              100% secure online payment
+            </p>
+
           </div>
+
         </div>
-        <div class="col-md-3">
-          <div class="feature-box text-center">
-            <span class="material-icons feature-icon">assignment_return</span>
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="card border-0 shadow-sm h-100 text-center p-4">
+
+            <span class="material-icons display-5 text-primary mb-3">
+              assignment_return
+            </span>
+
             <h5>Easy Returns</h5>
-            <p>30-day return policy on all items</p>
+
+            <p class="text-muted mb-0">
+              Hassle-free returns within 30 days
+            </p>
+
           </div>
+
         </div>
-        <div class="col-md-3">
-          <div class="feature-box text-center">
-            <span class="material-icons feature-icon">support_agent</span>
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="card border-0 shadow-sm h-100 text-center p-4">
+
+            <span class="material-icons display-5 text-primary mb-3">
+              support_agent
+            </span>
+
             <h5>24/7 Support</h5>
-            <p>Dedicated customer support team</p>
+
+            <p class="text-muted mb-0">
+              Our support team is always here to help
+            </p>
+
           </div>
+
         </div>
+
       </div>
+
     </div>
+
   </section>
+
 </div>
