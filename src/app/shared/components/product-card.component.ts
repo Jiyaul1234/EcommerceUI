@@ -20,7 +20,6 @@ export class ProductCardComponent {
   }
 
   onViewDetails(): void {
-    alert(`Navigating to product details for product ID: ${this.product.id}`);
     this.viewDetails.emit(this.product.id);
   }
 

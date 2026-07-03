@@ -34,7 +34,6 @@ export class ProductDetailComponent implements OnInit {
   }
 
   loadProduct(id: string): void {
-    alert("Hello product details")
     this.productService.getProduct(id).subscribe({
       next: (product) => {
         this.product = product;

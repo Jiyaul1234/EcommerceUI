@@ -6,7 +6,9 @@ import { Router } from '@angular/router';
 import {
   CartService,
   NotificationService,
-  OrderService
+  OrderService,
+  AuthService,
+  
 } from '@core/services';
 
 import {
@@ -46,7 +48,8 @@ export class CheckoutComponent implements OnInit {
     private cartService: CartService,
     private orderService: OrderService,
     private notificationService: NotificationService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -73,7 +76,7 @@ export class CheckoutComponent implements OnInit {
 
       id: '',
 
-      customerId: '1001',
+      customerId: this.authService.getCurrentUser()?.id || '',
 
       orderNumber: '',
 
@@ -137,6 +140,7 @@ export class CheckoutComponent implements OnInit {
       !this.shippingAddress.country
     ) {
 
+      alert('Please fill in all required shipping details.');
       this.notificationService.showError('Please fill in all required shipping details.');
 
       return;
@@ -151,7 +155,7 @@ export class CheckoutComponent implements OnInit {
 
         this.notificationService.showSuccess('Order created successfully.');
 
-        this.router.navigate(['/payment'], {
+        this.router.navigate(['/orders'], {
           state: {
             order: response
           }
